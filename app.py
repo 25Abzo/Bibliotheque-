@@ -16,7 +16,8 @@ def get_db_connection():
 # Route principale
 @app.route('/')
 def index():
-    return render_template('base.html')
+    return render_template('index.html')
+
 
 # Gestion des livres
 @app.route('/books', methods=['GET', 'POST'])

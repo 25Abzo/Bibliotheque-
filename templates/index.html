@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Bibliothèque en ligne</title>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6">
+    <h1 class="text-4xl font-bold mb-6 text-center">Gestion des Bibliothèque</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded shadow-md">
+            <h2 class="text-xl font-bold mb-2">Livres</h2>
+            <p class="mb-4">Ajoutez un nouveau livre à la base de données.</p>
+            <a href="{{ url_for('books') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Ajouter un livre</a>
+        </div>
+        <div class="bg-white p-6 rounded shadow-md">
+            <h2 class="text-xl font-bold mb-2">Utilisateurs</h2>
+            <p class="mb-4">Ajoutez un nouveau utilisateur dans la base de données.</p>
+            <a href="{{ url_for('users') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Ajouter un utilisateur</a>
+        </div>
+        <div class="bg-white p-6 rounded shadow-md">
+            <h2 class="text-xl font-bold mb-2">Effecteur un emprunt </h2>
+            <p class="mb-4">Vous pouvez emprunter n'importe quel livre </p>
+            <a href="{{ url_for('borrow') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Emprunter un livre</a>
+        </div>
+        <div class="bg-white p-6 rounded shadow-md">
+            <h2 class="text-xl font-bold mb-2">Liste des emprunts</h2>
+            <p class="mb-4">Consultez la liste de tous les emprunts enregistrés.</p>
+            <a href="{{ url_for('borrowings') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Liste des emprunts</a>
+        </div>
+        <div class="bg-white p-6 rounded shadow-md">
+            <h2 class="text-xl font-bold mb-2">Liste des retours</h2>
+            <p class="mb-4">Consultez la liste de tous les retours.</p>
+            <a href="{{ url_for('returns') }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Liste des retours</a>
+        </div>
+    </div>
+</body>
+</html>
