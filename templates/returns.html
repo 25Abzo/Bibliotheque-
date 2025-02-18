@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Gestion des Retours</h1>
+
+<!-- Tableau des retours -->
+<table class="w-full border-collapse">
+    <thead class="bg-gray-200">
+        <tr>
+            <th class="p-2 border">ID Retour</th>
+            <th class="p-2 border">Utilisateur</th>
+            <th class="p-2 border">Livre</th>
+            <th class="p-2 border">Date Retour Effective</th>
+            <th class="p-2 border">État du Livre</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for retour in returns %}
+        <tr class="odd:bg-white even:bg-gray-100">
+            <td class="p-2 border">{{ retour.id_retour }}</td>
+            <td class="p-2 border">{{ retour.utilisateur }}</td>
+            <td class="p-2 border">{{ retour.livre }}</td>
+            <td class="p-2 border">{{ retour.date_retour_effective }}</td>
+            <td class="p-2 border">{{ retour.etat_livre }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

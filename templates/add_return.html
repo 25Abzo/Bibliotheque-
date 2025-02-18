@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Enregistrer un Retour</h1>
+
+<!-- Formulaire pour enregistrer un retour -->
+<form method="POST" class="space-y-4">
+    <!-- Informations sur l'emprunt -->
+    <div>
+        <p class="font-medium text-gray-700">Utilisateur : {{ borrowing.utilisateur }}</p>
+        <p class="font-medium text-gray-700">Livre : {{ borrowing.livre }}</p>
+        <p class="font-medium text-gray-700">Date d'emprunt : {{ borrowing.date_emprunt }}</p>
+        <p class="font-medium text-gray-700">Date de retour prévue : {{ borrowing.date_retour_prevue }}</p>
+    </div>
+
+    <!-- Date de retour effective -->
+    <div>
+        <label for="date_retour_effective" class="block font-medium text-gray-700">Date de retour effective :</label>
+        <input type="date" name="date_retour_effective" id="date_retour_effective" class="border p-2 w-full" required>
+    </div>
+
+    <!-- État du livre -->
+    <div>
+        <label for="etat_livre" class="block font-medium text-gray-700">État du livre :</label>
+        <select name="etat_livre" id="etat_livre" class="border p-2 w-full" required>
+            <option value="bon">Bon</option>
+            <option value="endommage">Endommagé</option>
+        </select>
+    </div>
+
+    <!-- Bouton de soumission -->
+    <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+        Enregistrer le retour
+    </button>
+</form>
+{% endblock %}

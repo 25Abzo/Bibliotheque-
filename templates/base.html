@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-blue-600 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Bibliothèque En Ligne</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="{{ url_for('index') }}" class="hover:underline">Accueil</a></li>
+                    <li><a href="{{ url_for('books') }}" class="hover:underline">Livres</a></li>
+                    <li><a href="{{ url_for('users') }}" class="hover:underline">Utilisateurs</a></li>
+                    <li><a href="{{ url_for('borrow') }}" class="hover:underline">Effectuer un Emprunt</a></li>
+                    <li><a href="{{ url_for('borrowings') }}" class="hover:underline">Emprunts</a></li>
+                    <li><a href="{{ url_for('returns') }}" class="hover:underline">Retours</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container mx-auto mt-4">
+                {% for category, message in messages %}
+                    <div class="p-4 mb-4 rounded bg-{% if category == 'success' %}green-100{% else %}red-100{% endif %} text-{% if category == 'success' %}green-800{% else %}red-800{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-8">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Bibliothèque En Ligne. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

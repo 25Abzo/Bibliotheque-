@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Effectuer un Emprunt</h1>
+
+<!-- Formulaire pour effectuer un emprunt -->
+<form method="POST" class="space-y-4">
+    <!-- Sélection de l'utilisateur -->
+    <div>
+        <label for="user_id" class="block font-medium text-gray-700">Utilisateur :</label>
+        <select name="user_id" id="user_id" class="border p-2 w-full" required>
+            <option value="" disabled selected>Sélectionnez un utilisateur</option>
+            {% for user in users %}
+            <option value="{{ user.id_utilisateur }}">{{ user.nom }} {{ user.prenom }} ({{ user.email }})</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Sélection du livre -->
+    <div>
+        <label for="book_id" class="block font-medium text-gray-700">Livre :</label>
+        <select name="book_id" id="book_id" class="border p-2 w-full" required>
+            <option value="" disabled selected>Sélectionnez un livre</option>
+            {% for book in books %}
+            <option value="{{ book.id_livre }}">{{ book.titre }} - {{ book.auteur }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Date d'emprunt -->
+    <div>
+        <label for="date_emprunt" class="block font-medium text-gray-700">Date d'emprunt :</label>
+        <input type="date" name="date_emprunt" id="date_emprunt" class="border p-2 w-full" required>
+    </div>
+
+    <!-- Date de retour prévue -->
+    <div>
+        <label for="date_retour_prevue" class="block font-medium text-gray-700">Date de retour prévue :</label>
+        <input type="date" name="date_retour_prevue" id="date_retour_prevue" class="border p-2 w-full" required>
+    </div>
+
+    <!-- Bouton de soumission -->
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        Enregistrer l'emprunt
+    </button>
+</form>
+{% endblock %}

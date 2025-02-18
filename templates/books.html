@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Gestion des Livres</h1>
+
+<!-- Formulaire pour ajouter un livre -->
+<form method="POST" class="mb-4 space-y-4">
+    <div class="flex space-x-4">
+        <input type="text" name="titre" placeholder="Titre" class="border p-2 flex-1" required>
+        <input type="text" name="auteur" placeholder="Auteur" class="border p-2 flex-1" required>
+    </div>
+    <div class="flex space-x-4">
+        <input type="text" name="editeur" placeholder="Éditeur" class="border p-2 flex-1">
+        <input type="number" name="annee" placeholder="Année" class="border p-2 flex-1">
+        <input type="text" name="genre" placeholder="Genre" class="border p-2 flex-1">
+    </div>
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Ajouter</button>
+</form>
+
+<!-- Tableau des livres -->
+<table class="w-full border-collapse">
+    <thead class="bg-gray-200">
+        <tr>
+            <th class="p-2 border">ID</th>
+            <th class="p-2 border">Titre</th>
+            <th class="p-2 border">Auteur</th>
+            <th class="p-2 border">Éditeur</th>
+            <th class="p-2 border">Année</th>
+            <th class="p-2 border">Genre</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr class="odd:bg-white even:bg-gray-100">
+            <td class="p-2 border">{{ book.id_livre }}</td>
+            <td class="p-2 border">{{ book.titre }}</td>
+            <td class="p-2 border">{{ book.auteur }}</td>
+            <td class="p-2 border">{{ book.editeur }}</td>
+            <td class="p-2 border">{{ book.annee_publication }}</td>
+            <td class="p-2 border">{{ book.genre }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
